@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{biblatex-btxlike}[2024/12/26 v1.0.1 A biblatex style mimicking BibTeX output]
+\ProvidesPackage{biblatex-btxlike}[2024/12/26 v1.0.2 A biblatex style mimicking BibTeX output]
 
 % Load necessary packages or settings
 \RequirePackage[
@@ -20,19 +20,19 @@
   }{}%
   \newunit\newblock%
   \iffieldundef{doi}{%
-    \usebibmacro{url+urldate}}%
-    {}%
+  \usebibmacro{url+urldate}}%
+  {}%
 }
 
 \renewbibmacro{in:}{%
-  \ifentrytype{article}{}{\printtext{\bibstring{in}\addspace}}}
+\ifentrytype{article}{}{\printtext{\bibstring{in}\addspace}}}
 
 \DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{title}{#1}
 
 \DeclareFieldFormat[online]{title}{%
   \iffieldequalstr{entrysubtype}{article}
-    {#1}              % Article-like formatting (roman, no quotes)
-    {\mkbibemph{#1}}  % Book-like formatting (italic)
+  {#1}              % Article-like formatting (roman, no quotes)
+  {\mkbibemph{#1}}  % Book-like formatting (italic)
 }
 
 \DeclareFieldFormat{edition}{#1 edition}
@@ -55,24 +55,24 @@
 
 \RequirePackage{xpatch}
 \xpatchbibdriver{incollection}
-  {\newunit\newblock%
-   \usebibmacro{chapter+pages}}
-  {}{}{}
+{\newunit\newblock%
+\usebibmacro{chapter+pages}}
+{}{}{}
 
 \xpatchbibdriver{incollection}
-  {\usebibmacro{series+number}}
-  {\usebibmacro{series+number}%
-   \newunit\newblock%
-   \usebibmacro{chapter+pages}}
-  {}{}
+{\usebibmacro{series+number}}
+{\usebibmacro{series+number}%
+  \newunit\newblock%
+\usebibmacro{chapter+pages}}
+{}{}
 
 \xpatchbibmacro{note+pages}
-  {\printfield{pages}}
-  {%
-    \printfield{pages}%
-    \setunit{\addcomma\addspace}%
-    \usebibmacro{date}%
-  }{}{}
+{\printfield{pages}}
+{%
+  \printfield{pages}%
+  \setunit{\addcomma\addspace}%
+  \usebibmacro{date}%
+}{}{}
 
 \xpatchbibmacro{journal+issuetitle}{%
   \usebibmacro{journal}%
@@ -83,24 +83,24 @@
 }{}{}
 
 \xpatchbibmacro{volume+number+eid}%
-  {\setunit*{\adddot}%
-   \printfield{number}%
-   \setunit{\bibeidpunct}%
-  }{%
-   \printfield[parens]{number}%
-   \setunit{\addcolon}%
-  }{}{}
+{\setunit*{\adddot}%
+  \printfield{number}%
+  \setunit{\bibeidpunct}%
+}{%
+  \printfield[parens]{number}%
+  \setunit{\addcolon}%
+}{}{}
 
 \renewbibmacro{issue+date}{}
 
 \xpatchbibdriver{online}%
 {\usebibmacro{date}}%
 {\iffieldequalstr{entrysubtype}{book}{%
-\printfield{edition}%
-\newunit\newblock%
-}{}%
+    \printfield{edition}%
+    \newunit\newblock%
+  }{}%
 \usebibmacro{date}}%
 {}{}%
-  
+
 % End of style definition
 \endinput
