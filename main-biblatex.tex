@@ -1,0 +1,20 @@
+\documentclass{article}
+
+\usepackage[
+  backend=biber,
+  style=alphabetic,
+  isbn=false,
+  doi=false,
+  url=false,
+  giveninits=true
+]{biblatex}
+\addbibresource{sample-refs.bib}
+
+\begin{document}
+
+% Show all references in sample-refs.bib
+\nocite{*}
+
+\printbibliography
+
+\end{document}

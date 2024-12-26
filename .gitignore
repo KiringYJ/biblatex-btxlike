@@ -1,0 +1,29 @@
+# ------------------------------------------------------------------------------
+# TeX/LaTeX intermediate and output files
+# ------------------------------------------------------------------------------
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.toc
+*.toc~
+*.lot
+*.lof
+*.gz
+*.synctex.gz
+*.synctex*
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.nav
+*.snm
+
+# Optional: Ignore PDF output (uncomment if you don’t want PDFs in git)
+*.pdf
+
+# ------------------------------------------------------------------------------
+# Editors & IDEs
+# ------------------------------------------------------------------------------
+.vscode/
