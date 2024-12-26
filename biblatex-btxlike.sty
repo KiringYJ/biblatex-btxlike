@@ -93,5 +93,14 @@
 
 \renewbibmacro{issue+date}{}
 
+\xpatchbibdriver{online}%
+{\usebibmacro{date}}%
+{\iffieldequalstr{entrysubtype}{book}{%
+\printfield{edition}%
+\newunit\newblock%
+}{}%
+\usebibmacro{date}}%
+{}{}%
+  
 % End of style definition
 \endinput
