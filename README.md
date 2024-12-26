@@ -59,29 +59,22 @@ While BibTeX has been a standard for bibliographies for decades, BibLaTeX offers
 
 ## Key Modifications in `biblatex-btxlike`
 
-1. **URL and DOI Handling**
-
-   - **BibLaTeX**: Displays DOI links prominently, along with URLs.
-   - **btxlike**: Displays the URL only when the DOI is missing. This ensures that:
-     - For online publications or ebooks, URLs are shown as "Available at ".
-     - For published books with a DOI, no URL is displayed, aligning with typical citation norms.
-
-2. **Removed "In:" Prefix for Journal Articles**
+1. **Removed "In:" Prefix for Journal Articles**
 
    - **BibLaTeX**: Includes the prefix `In:` before journal titles.
-   - **btxlike**: Removes this prefix to align with BibTeX output.
+   - **btxlike**: Removes this prefix and further adjusts the journal format by consolidating volume, issue, and pages to closely match the conventional BibTeX style. Refer to the journal comparison examples for details on how volume numbers, issue information, and page ranges are displayed.
 
-3. **Subtitles Handling**
+2. **Subtitles Handling**
 
    - **BibLaTeX**: Subtitles are displayed after the main title, separated by a period.
    - **btxlike**: Integrates subtitles seamlessly with the main title, separated by a colon.
 
-4. **Edition Formatting**
+3. **Edition Formatting**
 
    - **BibLaTex** : Displays edition as "Second".
    - **btxlike**: Uses "Second edition" for clarity and consistency with BibTeX.
 
-5. **Page Number Formatting**
+4. **Page Number Formatting**
 
    - **BibLaTeX**: Displays pages with "pp.".
    - **btxlike**: Displays pages without "pp.", aligning with BibTeX's simpler format.
@@ -130,11 +123,12 @@ Below is a side-by-side comparison of bibliographic entries rendered with **BibT
 
 #### BibTeX
 
-- [Kna16] Anthony W. Knapp. *Basic Algebra*. Digital second edition, 2016.
+- [Kna16] Anthony W. Knapp. Basic Algebra. 2016.
 
 #### BibLaTeX (with options)
 
-- [Kna16] A. W. Knapp. *Basic Algebra*. Digital second. 2016.
+- [Kna16] A. W. Knapp. *Basic Algebra*. 2016. URL: `https://www.math.stonybrook.edu/~aknapp/download/b2-alg-clickable.pdf`.
+
 
 #### btxlike
 
