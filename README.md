@@ -2,8 +2,6 @@
 
 This repository contains the custom `biblatex-btxlike.sty` package, designed to emulate the output style of BibTeX while retaining the advanced features of BibLaTeX. Below, we highlight key changes made by `biblatex-btxlike` and provide a side-by-side comparison of outputs to demonstrate its effects.
 
----
-
 ## How to Use
 
 ### Overleaf Users
@@ -11,7 +9,7 @@ This repository contains the custom `biblatex-btxlike.sty` package, designed to 
 Since `biblatex-btxlike.sty` is not yet on CTAN, Overleaf users can include it in their project by:
 
 1. Clicking on **Add Files > From external URL** in Overleaf.
-2. Entering the URL to the raw `biblatex-btxlike.sty` file in this repository.
+2. Entering the URL to the raw `biblatex-btxlike.sty` file in this repository: [https://raw.githubusercontent.com/KiringYJ/biblatex-btxlike/main/biblatex-btxlike.sty](https://raw.githubusercontent.com/KiringYJ/biblatex-btxlike/main/biblatex-btxlike.sty)
 3. Clicking **Add** to include the file in your project.
 
 After adding the file, include it in your LaTeX document with:
@@ -27,8 +25,6 @@ Download the `biblatex-btxlike.sty` file and place it in the same directory as y
 ```latex
 \usepackage{biblatex-btxlike}
 ```
-
----
 
 ## Why Choose BibLaTeX Over BibTeX?
 
@@ -61,8 +57,6 @@ While BibTeX has been a standard for bibliographies for decades, BibLaTeX offers
    - **BibTeX**: Many users include subtitles in the `note` field as BibTeX does not natively support them.
    - **BibLaTeX**: Separates subtitles from main titles by default but allows customization to seamlessly integrate them with the main title.
 
----
-
 ## Key Modifications in `biblatex-btxlike`
 
 1. **URL and DOI Handling**
@@ -92,13 +86,13 @@ While BibTeX has been a standard for bibliographies for decades, BibLaTeX offers
    - **BibLaTeX**: Displays pages with "pp.".
    - **btxlike**: Displays pages without "pp.", aligning with BibTeX's simpler format.
 
----
-
 ## Comparison of Outputs
 
 Below is a side-by-side comparison of bibliographic entries rendered with **BibTeX**, **BibLaTeX (with options)**, and **btxlike**.
 
 > **Note:** The "BibLaTeX (with options)" examples use some pre-configured options, but no additional coding or macro customizations were applied.
+
+---
 
 ### Journal Article
 
@@ -152,9 +146,10 @@ Below is a side-by-side comparison of bibliographic entries rendered with **BibT
 
 - **`biblatex-btxlike.sty`**: The custom style file implementing the changes described above.
 - **`sample-refs.bib`**: A sample bibliography file used for generating the comparisons.
-- **Comparison examples**: The rendered outputs are included in this README for demonstration purposes.
+- **`main-biblatex.tex`**: A LaTeX file using BibLaTeX for generating comparison demos and serving as an example of how to use BibLaTeX.
+- **`main-bibtex.tex`**: A LaTeX file using BibTeX for generating comparison demos and serving as an example of how to use BibTeX.
+- **`main-btxlike.tex`**: A LaTeX file using `biblatex-btxlike.sty` for generating comparison demos and serving as an example of how to use the custom style.
 
 ## License
 
 This project is open-source and distributed under the MIT License. Please refer to the `LICENSE` file in this repository for the full license text. We recommend sharing improvements via pull requests.
-
