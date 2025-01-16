@@ -41,21 +41,35 @@
 }
 
 \RequirePackage{xpatch}
-\xpatchbibdriver{incollection}
-{\newunit\newblock%
-\usebibmacro{chapter+pages}}
-{}{}{}
-
-\xpatchbibdriver{incollection}
-{\usebibmacro{series+number}}
-{\usebibmacro{series+number}%
+\xpatchbibdriver{incollection}{%
   \newunit\newblock%
-\usebibmacro{chapter+pages}}
-{}{}
+  \usebibmacro{chapter+pages}%
+}{}{}{}
 
-\xpatchbibmacro{note+pages}
-{\printfield{pages}}
-{%
+\xpatchbibdriver{incollection}{%
+  \usebibmacro{series+number}%
+}{%
+  \usebibmacro{series+number}%
+  \newunit\newblock%
+  \usebibmacro{chapter+pages}%
+}{}{}
+
+\xpatchbibdriver{inproceedings}{%
+  \newunit\newblock%
+  \usebibmacro{chapter+pages}%
+}{}{}{}
+
+\xpatchbibdriver{inproceedings}{%
+  \usebibmacro{byeditor+others}%
+}{%
+  \usebibmacro{byeditor+others}%
+  \newunit\newblock%
+  \usebibmacro{chapter+pages}%
+}{}{}
+
+\xpatchbibmacro{note+pages}{%
+  \printfield{pages}%
+}{%
   \printfield{pages}%
   \setunit{\addcomma\addspace}%
   \usebibmacro{date}%
@@ -69,8 +83,8 @@
   \setunit*{\addcomma\addspace}%
 }{}{}
 
-\xpatchbibmacro{volume+number+eid}%
-{\setunit*{\adddot}%
+\xpatchbibmacro{volume+number+eid}{%
+  \setunit*{\adddot}%
   \printfield{number}%
   \setunit{\bibeidpunct}%
 }{%
@@ -80,14 +94,15 @@
 
 \renewbibmacro{issue+date}{}
 
-\xpatchbibdriver{online}%
-{\usebibmacro{date}}%
-{\iffieldequalstr{entrysubtype}{book}{%
+\xpatchbibdriver{online}{%
+  \usebibmacro{date}%
+}{%
+  \iffieldequalstr{entrysubtype}{book}{%
     \printfield{edition}%
     \newunit\newblock%
   }{}%
-\usebibmacro{date}}%
-{}{}%
+  \usebibmacro{date}
+}{}{}%
 
 % End of style definition
 \endinput
