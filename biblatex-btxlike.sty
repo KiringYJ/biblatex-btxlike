@@ -11,6 +11,16 @@
   giveninits=true
 ]{biblatex}
 
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=author,
+        match=\regexp{^(The\s.+)$},
+      replace={{{$1}}}]
+    }
+  }
+}
+
 \renewbibmacro{in:}{%
 \ifentrytype{article}{}{\printtext{\bibstring{in}\addspace}}}
 
