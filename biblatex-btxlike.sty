@@ -35,9 +35,12 @@
 \DeclareFieldFormat{edition}{#1 edition}
 
 \AtEveryBibitem{%
-  \ifentrytype{book}{
-    \clearfield{pages}%
-  }{}
+  \ifboolexpr{
+    test {\ifentrytype{book}} or
+    test {\ifentrytype{proceedings}}
+  }
+  {\clearfield{pages}}
+  {}%
 }
 
 \renewcommand{\subtitlepunct}{\itshape\addcolon\addspace}
