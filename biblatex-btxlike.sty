@@ -59,6 +59,17 @@
   \usebibmacro{chapter+pages}%
 }{}{}{}
 
+\xpatchbibdriver{proceedings}
+{\usebibmacro{series+number}%
+  \newunit\newblock
+\printfield{note}}
+{\usebibmacro{series+number}%
+  \newunit\newblock
+  \printfield{edition}%
+  \newunit\newblock
+\printfield{note}}
+{}{}
+
 \xpatchbibdriver{incollection}{%
   \usebibmacro{series+number}%
 }{%
