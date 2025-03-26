@@ -128,5 +128,12 @@
   \usebibmacro{date}
 }{}{}%
 
+\xpatchbibdriver{article}
+  {\usebibmacro{note+pages}}
+  {\printfield{pages}%
+   \newunit\newblock
+   \printfield{note}}
+  {}{}
+
 % End of style definition
 \endinput
