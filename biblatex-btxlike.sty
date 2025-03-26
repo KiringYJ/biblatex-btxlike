@@ -92,11 +92,16 @@
 }{}{}
 
 \xpatchbibmacro{note+pages}{%
+  \printfield{note}%
+  \setunit{\bibpagespunct}%
   \printfield{pages}%
 }{%
+  \setunit{\bibpagespunct}%
   \printfield{pages}%
   \setunit{\addcomma\addspace}%
   \usebibmacro{date}%
+  \setunit{.\addspace}%
+  \printfield{note}%
 }{}{}
 
 \xpatchbibmacro{journal+issuetitle}{%
@@ -127,14 +132,6 @@
   }{}%
   \usebibmacro{date}
 }{}{}%
-
-\xpatchbibdriver{article}{%
-  \usebibmacro{note+pages}
-}{%
-  \printfield{pages}%
-  \newunit\newblock%
-  \printfield{note}%
-}{}{}
 
 % End of style definition
 \endinput
