@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{biblatex-btxlike}[2024/12/26 v1.0.3 A biblatex style mimicking BibTeX output]
-
+\ProvidesPackage{biblatex-btxlike}[2025/04/02 v1.0.12 A biblatex style mimicking BibTeX output]
+%
 % Load necessary packages or settings
 \RequirePackage[
   backend=biber,
@@ -8,7 +8,11 @@
   isbn=false,
   doi=false,
   url=true,
-  giveninits=true
+  giveninits=true,
+  maxnames=4,
+  minnames=4,
+  maxalphanames=4,
+  maxbibnames=4
 ]{biblatex}
 
 \DeclareSourcemap{
